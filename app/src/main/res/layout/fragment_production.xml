@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.itc.gic.m1.songbook.fragment.ProductionFragment">
+    tools:context="edu.itc.gic.m1.songbook.fragment.Myfavo">
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

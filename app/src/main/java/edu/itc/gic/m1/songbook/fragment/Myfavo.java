@@ -5,21 +5,40 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import java.util.List;
+
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import edu.itc.gic.m1.assign_001.R;
 import edu.itc.gic.m1.songbook.ListAdapter;
+import edu.itc.gic.m1.songbook.db.AppDatabase;
+import edu.itc.gic.m1.songbook.db.ProductionDao;
+import edu.itc.gic.m1.songbook.production.Production;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProductionFragment extends Fragment {
+public class Myfavo extends Fragment {
 
     RecyclerView recyclerView;
+    ListAdapter adapter;
 
-    public ProductionFragment() {
+    ImageView image;
+    TextView name;
+
+    List<Production> getData() {
+        return null;
+    }
+    List<Production> settData() {
+        return null;
+    }
+
+    public Myfavo() {
         // Required empty public constructor
     }
 
@@ -29,9 +48,19 @@ public class ProductionFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_production, container, false);
         recyclerView = view.findViewById(R.id.reproduc);
-        recyclerView.setAdapter(new ListAdapter(this.getContext(),5,1));
+//        recyclerView.setAdapter(adapter = new ListAdapter(this.getContext(),250,1,getData()));
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL,false));
 
         return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        AppDatabase database = AppDatabase.getInstance(getContext());
+        ProductionDao productionDao = database.getProductionDao();
+        List<Production> productions = productionDao.loadAll();
+
     }
 }

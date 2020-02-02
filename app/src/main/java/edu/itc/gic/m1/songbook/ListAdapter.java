@@ -5,19 +5,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import edu.itc.gic.m1.assign_001.R;
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
+public abstract class ListAdapter<T> extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
+    List<T> data;
     Context context;
     private int number_of_list;
     int num_number;
-    public ListAdapter(Context context, int num, int num_layout){
+    public ListAdapter(Context context, int num, int num_layout, List<T> list){
         this.context=context;
         this.number_of_list = num;
         this.num_number = num_layout;
+        this.data = list;
+    }
+
+    public List<T> getData() {
+        return this.data;
+    }
+
+    public void setData(List<T> data) {
+        this.data = data;
     }
 
     @NonNull
@@ -41,10 +53,13 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         return new ViewHolder(itemView);
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
-    }
+//    @Override
+//    public void onBindViewHolder(@NonNull RecyclerView.SongViewHolder holder, int position) {
+//        Production item = (Production) getData().get(position);
+//        item.setName("hello");
+//        item.setImage("hello.jpg");
+////                holder.imageView.sette;
+//    }
 
     @Override
     public int getItemCount() {

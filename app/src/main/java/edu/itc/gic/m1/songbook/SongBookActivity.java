@@ -8,9 +8,8 @@ import androidx.viewpager.widget.PagerTabStrip;
 import androidx.viewpager.widget.ViewPager;
 import edu.itc.gic.m1.assign_001.BaseActivity;
 import edu.itc.gic.m1.assign_001.R;
-import edu.itc.gic.m1.songbook.fragment.ProductionFragment;
-import edu.itc.gic.m1.songbook.fragment.SingerFragment;
-import edu.itc.gic.m1.songbook.fragment.SongFragment;
+import edu.itc.gic.m1.songbook.production.ProductionFragment;
+import edu.itc.gic.m1.songbook.song.SongFragment;
 
 //import androidx.fragment.app.Fragment;
 //import androidx.viewpager.widget.PagerTabStrip;
